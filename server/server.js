@@ -14,7 +14,11 @@ connectDB();
 
 
 // -----------------------------------------------------Middlewares básicos---------------------------------------------------------------------------
-app.use(cors());
+app.use(cors({
+  origin: 'https://carbarpart-client.onrender.com', // URL de tu frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 // Middleware para servir archivos estáticos
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
@@ -73,18 +77,6 @@ app.get('/api', (req, res) => {
 app.use('/api/autos', autoRoutes);
 app.use('/api/piezas', piezaRoutes);
 // ----------------------------------------------------------------Usar rutas de la API---------------------------------------------------------------
-
-// -------------------------NUEVO: Configuración para servir el frontend en producción--------------------------
-if (process.env.NODE_ENV === 'production') {
-  // 1. Servir archivos estáticos del frontend
-  app.use(express.static(path.join(__dirname, '../client/build')));
-  
-  // 2. Para cualquier ruta no manejada por el API, servir el index.html del frontend
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-  });
-}
-// -------------------------FIN de la nueva configuración--------------------------
 
 // ------------------------------------------------------Manejo de rutas no encontradas (404)----------------------------------------------------------
 app.use((req, res, next) => {
