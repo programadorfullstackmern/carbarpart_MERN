@@ -77,11 +77,11 @@ app.use('/api/piezas', piezaRoutes);
 // -------------------------NUEVO: Configuración para servir el frontend en producción--------------------------
 if (process.env.NODE_ENV === 'production') {
   // 1. Servir archivos estáticos del frontend
-  app.use(express.static(path.join(__dirname, '../client/dist')));
+  app.use(express.static(path.join(__dirname, '../client/build')));
   
   // 2. Para cualquier ruta no manejada por el API, servir el index.html del frontend
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
   });
 }
 // -------------------------FIN de la nueva configuración--------------------------
