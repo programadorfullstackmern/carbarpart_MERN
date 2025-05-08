@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = import.meta.env.VITE_API_URL
+const API_URL = import.meta.env.VITE_API_URL || 'https://carbarpart-server.onrender.com/api'
 
 // Configuración base sin headers para permitir sobreescritura
 const piezaApi = axios.create({

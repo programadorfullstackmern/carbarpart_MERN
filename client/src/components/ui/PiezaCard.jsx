@@ -5,7 +5,7 @@ import { Gear, CashCoin, CarFront, ZoomIn } from 'react-bootstrap-icons'
 import ImageModal from './ImageModal'
 
 const PiezaCard = ({ pieza }) => {
-  const API_URL_IMAGE = import.meta.env.VITE_API_URL_IMAGE
+  const API_URL_IMAGE = import.meta.env.VITE_API_URL_IMAGE || "https://carbarpart-server.onrender.com/uploads"
   const [showImageModal, setShowImageModal] = useState(false)
 
   return (

@@ -4,7 +4,7 @@ import { PiezaContext } from '../../context/PiezaContext'
 import { Link } from 'react-router-dom'
 
 const PiezaSearch = () => {
-  const API_URL_IMAGE = import.meta.env.VITE_API_URL_IMAGE
+  const API_URL_IMAGE = import.meta.env.VITE_API_URL_IMAGE || "https://carbarpart-server.onrender.com/uploads"
 
   const { 
     searchResults: piezas, 
