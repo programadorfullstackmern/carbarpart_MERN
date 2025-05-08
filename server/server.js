@@ -74,6 +74,17 @@ app.use('/api/autos', autoRoutes);
 app.use('/api/piezas', piezaRoutes);
 // ----------------------------------------------------------------Usar rutas de la API---------------------------------------------------------------
 
+// -------------------------NUEVO: Configuración para servir el frontend en producción--------------------------
+if (process.env.NODE_ENV === 'production') {
+  // 1. Servir archivos estáticos del frontend
+  app.use(express.static(path.join(__dirname, '../client/dist')));
+  
+  // 2. Para cualquier ruta no manejada por el API, servir el index.html del frontend
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
+  });
+}
+// -------------------------FIN de la nueva configuración--------------------------
 
 // ------------------------------------------------------Manejo de rutas no encontradas (404)----------------------------------------------------------
 app.use((req, res, next) => {
