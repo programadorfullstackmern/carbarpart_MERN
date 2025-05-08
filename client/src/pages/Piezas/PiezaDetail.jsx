@@ -25,7 +25,7 @@ import ImageModal from "../../components/ui/ImageModal";
 
 const PiezaDetail = () => {
   const API_URL_IMAGE =
-    import.meta.env.VITE_API_URL_IMAGE || "http://localhost:5000/uploads";
+    import.meta.env.VITE_API_URL_IMAGE || "https://carbarpart-mern.onrender.com/uploads";
   const [showImageModal, setShowImageModal] = useState(false);
 
   const { id } = useParams();
