@@ -12,5 +12,18 @@ export default defineConfig({
         secure: false
       }
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          reactRouter: ['react-router-dom'],
+          // Agrega otras librerías grandes aquí
+          vendor: ['lodash', 'axios'], // Ejemplo de otras dependencias
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000, // Aumenta el límite de advertencia a 1000kB
   }
 })
