@@ -7,7 +7,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'https://carbarpart-mern.onrender.com',
+        target: 'https://carbarpart-server.onrender.com',
         changeOrigin: true,
         secure: false
       }

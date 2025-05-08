@@ -11,8 +11,7 @@ import {
 import ImageModal from "./ImageModal";
 
 const AutoCard = ({ auto }) => {
-  const API_URL_IMAGE =
-    import.meta.env.VITE_API_URL_IMAGE || "https://carbarpart-mern.onrender.com/uploads";
+  const API_URL_IMAGE = import.meta.env.VITE_API_URL_IMAGE;
   const [showImageModal, setShowImageModal] = useState(false);
 
   return (

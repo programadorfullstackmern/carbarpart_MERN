@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://carbarpart-mern.onrender.com/api'
+const API_URL = import.meta.env.VITE_API_URL
 
 // Configuración base sin headers para permitir sobreescritura
 const autoApi = axios.create({

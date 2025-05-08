@@ -4,7 +4,7 @@ import { AutoContext } from '../../context/AutoContext'
 import { Link } from 'react-router-dom'
 
 const AutoSearch = () => {
-  const API_URL_IMAGE = import.meta.env.VITE_API_URL_IMAGE || 'https://carbarpart-mern.onrender.com/uploads'
+  const API_URL_IMAGE = import.meta.env.VITE_API_URL_IMAGE
 
   const { 
     searchResults: autos, 
